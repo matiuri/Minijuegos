@@ -107,8 +107,8 @@ public class AssetLoader<T extends Disposable> implements Disposable {
 	public void dispose() {
 		if (disposed)
 			throw new AssetLoaderError("The AssetLoader has been disposed");
-		disposed = true;
 		clear();
 		manager.dispose();
+		disposed = true;
 	}
 }
