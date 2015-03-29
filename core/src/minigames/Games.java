@@ -1,5 +1,7 @@
 package minigames;
 
+import minigames.screens.ScreenAdapter;
+import minigames.screens.TitleScreen;
 import minigames.utils.assets.AssetLoader;
 
 import com.badlogic.gdx.Game;
@@ -21,9 +23,12 @@ public class Games extends Game {
 	public static AssetLoader<Sound> snd_loader = new AssetLoader<>(Sound.class);
 	public static AssetLoader<Music> mus_loader = new AssetLoader<>(Music.class);
 	
+	public ScreenAdapter titleScreen;
+	
 	@Override
 	public void create() {
-		// TODO
+		titleScreen = new TitleScreen(this);
+		setScreen(titleScreen);
 	}
 	
 	@Override
