@@ -2,6 +2,7 @@ package minigames;
 
 import minigames.screens.ScreenAdapter;
 import minigames.screens.TitleScreen;
+import minigames.tictactoe.TicTacToe;
 import minigames.utils.assets.AssetLoader;
 
 import com.badlogic.gdx.Game;
@@ -23,12 +24,13 @@ public class Games extends Game {
 	public static AssetLoader<Sound> snd_loader = new AssetLoader<>(Sound.class);
 	public static AssetLoader<Music> mus_loader = new AssetLoader<>(Music.class);
 	
-	public ScreenAdapter titleScreen;
+	public ScreenAdapter titleScreen, tic_tac_toeScreen;
 	
 	@Override
 	public void create() {
 		titleScreen = new TitleScreen(this);
-		setScreen(titleScreen);
+		tic_tac_toeScreen = new TicTacToe(this);
+		setScreen(tic_tac_toeScreen);
 	}
 	
 	@Override
