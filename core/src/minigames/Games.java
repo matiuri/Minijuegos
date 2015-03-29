@@ -1,7 +1,6 @@
 package minigames;
 
 import minigames.utils.assets.AssetLoader;
-import minigames.utils.fonts.FontLoader;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
@@ -11,7 +10,6 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class Games extends Game {
 	public static final String TITLE = "Minigames", VERSION = "Alpha 0.0", VENDOR = "Matías Steinberg";
@@ -23,22 +21,14 @@ public class Games extends Game {
 	public static AssetLoader<Sound> snd_loader = new AssetLoader<>(Sound.class);
 	public static AssetLoader<Music> mus_loader = new AssetLoader<>(Music.class);
 	
-	private SpriteBatch sb;
-	
 	@Override
 	public void create() {
-		sb = new SpriteBatch();
+		// TODO
 	}
 	
 	@Override
 	public void render() {
 		super.render();
-		clearScreen(Color.BLUE, 1);
-		sb.begin();
-		FontLoader.STENCIL_36.draw(sb, "Probando Stencil.ttf", 50, 50);
-		FontLoader.SEASIDE_RESORT_NF_36.draw(sb, "Probando SeasideResortNF.ttf", 150, 150);
-		FontLoader.ARIAL_36.draw(sb, "Probando Arial.ttf", 250, 250);
-		sb.end();
 	}
 	
 	@Override
@@ -46,8 +36,6 @@ public class Games extends Game {
 		tex_loader.dispose();
 		snd_loader.dispose();
 		mus_loader.dispose();
-		
-		sb.dispose();
 	}
 	
 	public static void clearScreen() {
