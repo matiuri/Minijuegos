@@ -40,6 +40,7 @@ public class AssetLoader<T extends Disposable> implements Disposable {
 			manager.finishLoading();
 			if (keys.size() == 0) {
 				map.put(key, manager.get(path, CLASS));
+				keys.add(key);
 			} else {
 				for (String s : keys) {
 					if (s.equals(key)) {
@@ -47,6 +48,7 @@ public class AssetLoader<T extends Disposable> implements Disposable {
 					}
 				}
 				map.put(key, manager.get(path, CLASS));
+				keys.add(key);
 			}
 		} else {
 			throw new AssetLoaderException("The AssetLoader is full");
