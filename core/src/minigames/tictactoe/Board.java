@@ -1,30 +1,25 @@
 package minigames.tictactoe;
 
-import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
-public class Board extends Actor {
+public class Board {
 	private Cell[][] cells;
 	private int size = 3;
+	private float x = 500, y = Gdx.graphics.getHeight() - 250;
 	
 	public Board(Stage stage) {
 		cells = new Cell[size][size];
 		for (int i = 0; i < cells.length; i++) {
 			for (int j = 0; j < cells[i].length; j++) {
-				cells[i][j] = new Cell();
-				stage.addActor(cells[i][j]);
+				Cell temp = new Cell(x, y);
+				temp.addListener(new Input(temp));
+				stage.addActor(temp);
+				cells[i][j] = temp;
+				x += 70;
 			}
+			x = 500;
+			y -= 70;
 		}
-	}
-	
-	@Override
-	public void draw(Batch batch, float parentAlpha) {
-		// FIXME
-		// for (Cell[] p1 : cells) {
-		// for (Cell p : p1) {
-		// p.draw();
-		// }
-		// }
 	}
 }

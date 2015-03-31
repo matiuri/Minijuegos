@@ -3,6 +3,7 @@ package minigames.tictactoe;
 import minigames.Games;
 import minigames.screens.ScreenAdapter;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
@@ -23,7 +24,8 @@ public class TicTacToe extends ScreenAdapter {
 		Games.tex_loader.load("Tic-Tac-Toe/red.png", RED_KEY);
 		
 		stage = new Stage(new ScreenViewport());
-		stage.addActor(board = new Board(stage));
+		board = new Board(stage);
+		Gdx.input.setInputProcessor(stage);
 	}
 	
 	@Override
@@ -40,6 +42,7 @@ public class TicTacToe extends ScreenAdapter {
 	
 	@Override
 	public void hide() {
+		board = null;
 		stage.dispose();
 		Games.tex_loader.remove(BLUE_KEY);
 		Games.tex_loader.remove(RED_KEY);

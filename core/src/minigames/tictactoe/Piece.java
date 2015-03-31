@@ -18,8 +18,8 @@ public class Piece {
 		}
 	}
 	
-	public void draw(Batch batch, float x, float y) {
-		batch.draw(region, x, y, 64, 64);
+	public void draw(Batch batch, float x, float y, float width, float height) {
+		batch.draw(region, x, y, width, height);
 	}
 	
 	public boolean isBlue() {
