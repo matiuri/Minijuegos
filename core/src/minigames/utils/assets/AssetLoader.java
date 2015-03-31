@@ -92,6 +92,7 @@ public class AssetLoader<T extends Disposable> implements Disposable {
 			if (remove) {
 				map.get(key).dispose();
 				map.remove(key);
+				keys.remove(key);
 			} else {
 				throw new AssetLoaderException("The field " + key + " doesn't exist");
 			}
