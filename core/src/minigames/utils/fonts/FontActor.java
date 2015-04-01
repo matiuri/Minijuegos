@@ -12,6 +12,7 @@ public class FontActor extends Actor {
 	public FontActor(String path, FreeTypeFontParameter par, String message) {
 		font = Font.loadFont(path, par);
 		this.message = message;
+		// TODO: set bounds
 	}
 	
 	public FontActor(String path, int size, String message) {
@@ -19,10 +20,14 @@ public class FontActor extends Actor {
 		par.size = size;
 		font = Font.loadFont(path, par);
 		this.message = message;
+		// TODO: set bounds
 	}
 	
-	public FontActor(BitmapFont font) {
+	public FontActor(BitmapFont font, String message) {
 		this.font = font;
+		this.message = message;
+		// TODO: check this
+		setBounds(100, 100, 72 * message.length(), 72);
 	}
 	
 	public void setMessage(String message) {
