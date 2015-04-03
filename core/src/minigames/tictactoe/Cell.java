@@ -32,9 +32,12 @@ public class Cell extends Actor {
 		}
 	}
 	
-	public void add(boolean blue) {
-		if (piece == null)
+	public boolean add(boolean blue) {
+		if (piece == null) {
 			piece = new Piece(blue);
+			return true;
+		}
+		return false;
 	}
 	
 	public Piece getPiece() {

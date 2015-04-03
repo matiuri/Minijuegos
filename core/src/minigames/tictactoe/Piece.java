@@ -25,4 +25,8 @@ public class Piece {
 	public boolean isBlue() {
 		return blue;
 	}
+	
+	public boolean isRed() {
+		return !blue;
+	}
 }
